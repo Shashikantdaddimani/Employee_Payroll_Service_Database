@@ -82,4 +82,33 @@ mysql> select * from employee_payroll;
 +----+---------+---------+------------+
 3 rows in set (0.00 sec)
 
+/*
+ *Finding salary for specific person.
+ */
 
+mysql> select salary from employee_Payroll where name="Bill";
++---------+
+| salary  |
++---------+
+| 1000000 |
++---------+
+1 row in set (0.02 sec)
+
+/*
+ *cast() is used to convert string into date (string->'2018-01-01' convert to date)
+ *now() is used find till today's date
+ */
+
+mysql> select * from Employee_Payroll
+    -> where startdate between cast('2018-01-01' as date)
+    -> and date(now());
++----+---------+--------+---------+------------+
+| Id | Name    | gender | Salary  | StartDate  |
++----+---------+--------+---------+------------+
+|  1 | Bill    | m      | 1000000 | 2018-01-03 |
+|  2 | Terisa  | f      | 2000000 | 2019-11-13 |
+|  3 | Charlie | m      | 3000000 | 2020-05-21 |
++----+---------+--------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
