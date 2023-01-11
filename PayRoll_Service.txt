@@ -1,5 +1,39 @@
 Welcome to the PayRoll_Service Database.
 
+/*
+ *Created PayRoll_Service database.
+ */
+
+mysql> create database PayRoll_Services;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| address_book_services |
+| company_info          |
+| information_schema    |
+| mobile_info           |
+| mysql                 |
+| payroll_services      |
+| performance_schema    |
+| salary_info           |
+| student_info          |
+| sys                   |
++-----------------------+
+10 rows in set (0.00 sec)
+
+mysql> use payroll_services;
+Database changed
+mysql> select database();
++------------------+
+| database()       |
++------------------+
+| payroll_services |
++------------------+
+1 row in set (0.00 sec)
+
 
 
 
