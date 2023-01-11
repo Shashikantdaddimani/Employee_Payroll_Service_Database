@@ -222,4 +222,96 @@ mysql> select name, gender, min(salary) from employee_payroll;
 +------+--------+-------------+
 1 row in set (0.00 sec)
 
+/*
+ *create new column and Update the values in the employee_Payroll table
+ */
+ 
+mysql> alter table Employee_Payroll add PhoneNumber varchar(20);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Employee_Payroll add Address varchar(20);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Employee_Payroll add Department varchar(20);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_Payroll;
++----+---------+--------+---------+------------+-------------+---------+------------+
+| Id | Name    | gender | Salary  | StartDate  | PhoneNumber | Address | Department |
++----+---------+--------+---------+------------+-------------+---------+------------+
+|  1 | Bill    | m      | 1000000 | 2018-01-03 | NULL        | NULL    | NULL       |
+|  2 | Terisa  | f      | 2000000 | 2019-11-13 | NULL        | NULL    | NULL       |
+|  3 | Charlie | m      | 3000000 | 2020-05-21 | NULL        | NULL    | NULL       |
++----+---------+--------+---------+------------+-------------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update employee_Payroll set PhoneNumber ='9172322399' where name ='Bill';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_Payroll set PhoneNumber ='8626001571' where name ='Terish';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update employee_Payroll set PhoneNumber ='9422101501' where name ='Charlie';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_Payroll;
++----+---------+--------+---------+------------+-------------+---------+------------+
+| Id | Name    | gender | Salary  | StartDate  | PhoneNumber | Address | Department |
++----+---------+--------+---------+------------+-------------+---------+------------+
+|  1 | Bill    | m      | 1000000 | 2018-01-03 | 9172322399  | NULL    | NULL       |
+|  2 | Terisa  | f      | 2000000 | 2019-11-13 | NULL        | NULL    | NULL       |
+|  3 | Charlie | m      | 3000000 | 2020-05-21 | 9422101501  | NULL    | NULL       |
++----+---------+--------+---------+------------+-------------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update employee_Payroll set Address ='pune' where name ='Bill';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_Payroll set Address ='Banglore' where name ='Terisa';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_Payroll set Address ='Hubli' where name ='Charlie';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_Payroll;
++----+---------+--------+---------+------------+-------------+----------+------------+
+| Id | Name    | gender | Salary  | StartDate  | PhoneNumber | Address  | Department |
++----+---------+--------+---------+------------+-------------+----------+------------+
+|  1 | Bill    | m      | 1000000 | 2018-01-03 | 9172322399  | pune     | NULL       |
+|  2 | Terisa  | f      | 2000000 | 2019-11-13 | NULL        | Banglore | NULL       |
+|  3 | Charlie | m      | 3000000 | 2020-05-21 | 9422101501  | Hubli    | NULL       |
++----+---------+--------+---------+------------+-------------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update employee_Payroll set Department ='Admin' where name ='Bill';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_Payroll set Department ='Tech' where name ='Terisa';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_Payroll set Department ='Store' where name ='Charlie';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_Payroll;
++----+---------+--------+---------+------------+-------------+----------+------------+
+| Id | Name    | gender | Salary  | StartDate  | PhoneNumber | Address  | Department |
++----+---------+--------+---------+------------+-------------+----------+------------+
+|  1 | Bill    | m      | 1000000 | 2018-01-03 | 9172322399  | pune     | Admin      |
+|  2 | Terisa  | f      | 2000000 | 2019-11-13 | NULL        | Banglore | Tech       |
+|  3 | Charlie | m      | 3000000 | 2020-05-21 | 9422101501  | Hubli    | Store      |
++----+---------+--------+---------+------------+-------------+----------+------------+
+3 rows in set (0.00 sec)
+
 mysql>
