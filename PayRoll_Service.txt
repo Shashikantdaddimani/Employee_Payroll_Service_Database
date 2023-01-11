@@ -351,15 +351,6 @@ mysql> select * from employee_payroll;
 mysql> create table employeeDepartment(employee_Id int primary key auto_increment, department_Id int, Designation varchar(40), foreign key (department_Id) references employee_payroll(Id));
 Query OK, 0 rows affected (0.03 sec)
 
-mysql> desc employeeDepartment;
-+---------------+-------------+------+-----+---------+----------------+
-| Field         | Type        | Null | Key | Default | Extra          |
-+---------------+-------------+------+-----+---------+----------------+
-| employee_Id   | int         | NO   | PRI | NULL    | auto_increment |
-| department_Id | int         | YES  | MUL | NULL    |                |
-| Designation   | varchar(40) | YES  |     | NULL    |                |
-+---------------+-------------+------+-----+---------+----------------+
-3 rows in set (0.03 sec)
 
 mysql> select * from Employee_Payroll where Name="Terisa";
 +----+--------+--------+---------+------------+-------------+----------+------------+----------+-----------+------------+-----------+--------+
