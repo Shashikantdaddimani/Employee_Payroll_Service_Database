@@ -223,7 +223,7 @@ mysql> select name, gender, min(salary) from employee_payroll;
 1 row in set (0.00 sec)
 
 /*
- *create new column and Update the values in the employee_Payroll table
+ *create new column and Update the values in the employee_Payroll table.
  */
  
 mysql> alter table Employee_Payroll add PhoneNumber varchar(20);
@@ -314,4 +314,35 @@ mysql> select * from employee_Payroll;
 +----+---------+--------+---------+------------+-------------+----------+------------+
 3 rows in set (0.00 sec)
 
-mysql>
+/*
+ *Extend the Employee_Payroll Table to adding BasicPay, Deduction, TaxablePay, IncomeTax, netPay.
+ */
+
+mysql> alter table employee_Payroll add column BasicPay Varchar(40),add column deduction Varchar(40),add column TaxablePay Varchar(40), add column incomeTax Varchar(40),add column netPay Varchar(40);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+-------------+----------+------------+----------+-----------+------------+-----------+--------+
+| Id | Name    | gender | Salary  | StartDate  | PhoneNumber | Address  | Department | BasicPay | deduction | TaxablePay | incomeTax | netPay |
++----+---------+--------+---------+------------+-------------+----------+------------+----------+-----------+------------+-----------+--------+
+|  1 | Bill    | m      | 1000000 | 2018-01-03 | 9172322399  | pune     | Admin      | NULL     | NULL      | NULL       | NULL      | NULL   |
+|  2 | Terisa  | f      | 2000000 | 2019-11-13 | NULL        | Banglore | Tech       | NULL     | NULL      | NULL       | NULL      | NULL   |
+|  3 | Charlie | m      | 3000000 | 2020-05-21 | 9422101501  | Hubli    | Store      | NULL     | NULL      | NULL       | NULL      | NULL   |
++----+---------+--------+---------+------------+-------------+----------+------------+----------+-----------+------------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update employee_Payroll  set BasicPay ='6k', deduction = '2k', TaxablePay = '3k', IncomeTax = '4k', netPay ='50k';
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+-------------+----------+------------+----------+-----------+------------+-----------+--------+
+| Id | Name    | gender | Salary  | StartDate  | PhoneNumber | Address  | Department | BasicPay | deduction | TaxablePay | incomeTax | netPay |
++----+---------+--------+---------+------------+-------------+----------+------------+----------+-----------+------------+-----------+--------+
+|  1 | Bill    | m      | 1000000 | 2018-01-03 | 9172322399  | pune     | Admin      | 6k       | 2k        | 3k         | 4k        | 50k    |
+|  2 | Terisa  | f      | 2000000 | 2019-11-13 | NULL        | Banglore | Tech       | 6k       | 2k        | 3k         | 4k        | 50k    |
+|  3 | Charlie | m      | 3000000 | 2020-05-21 | 9422101501  | Hubli    | Store      | 6k       | 2k        | 3k         | 4k        | 50k    |
++----+---------+--------+---------+------------+-------------+----------+------------+----------+-----------+------------+-----------+--------+
+3 rows in set (0.00 sec)
+
