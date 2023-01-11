@@ -34,6 +34,26 @@ mysql> select database();
 +------------------+
 1 row in set (0.00 sec)
 
+/*
+ *Created Employee_payRoll Table.
+ */
 
+mysql> create table employee_PayRoll(Id int not null auto_increment,
+    -> Name Varchar(50) not null,
+    -> Salary Double not null,
+    -> StartDate date not null,
+    -> primary key(id)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
 
+mysql> desc employee_PayRoll;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| Id        | int         | NO   | PRI | NULL    | auto_increment |
+| Name      | varchar(50) | NO   |     | NULL    |                |
+| Salary    | double      | NO   |     | NULL    |                |
+| StartDate | date        | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
 
